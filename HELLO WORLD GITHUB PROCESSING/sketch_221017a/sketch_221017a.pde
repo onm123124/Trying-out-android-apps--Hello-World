@@ -2,7 +2,7 @@
 int appWidth, appHeight;
 //
 //Declare Display Geometry; square, landscape, portrait
-size(300, 600);
+size(300, 600); //fullScreen()
 appWidth= width;
 appHeight= height;
 println("\t\t\twidth="+width, "\tHeight="+height); //key variables
