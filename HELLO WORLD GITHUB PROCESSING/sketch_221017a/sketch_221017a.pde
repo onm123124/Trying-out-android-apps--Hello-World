@@ -35,6 +35,7 @@ void setup() {
 } //End setup
 //
 void draw() {
+  ellipse(150, 20, 10, 30);
 } //End draw
 //
 void keyPressed() {
