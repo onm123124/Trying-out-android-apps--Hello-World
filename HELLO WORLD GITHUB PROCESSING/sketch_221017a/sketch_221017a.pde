@@ -3,7 +3,7 @@ int appWidth, appHeight;
 //
 void setup() {
   //Declare Display Geometry: square, landscape, portrait
-  size(700, 400); //Use size for debugging
+  size(400, 400); //Use size for debugging
   //fullScreen(); //Use fullScreen for easy deployment
   appWidth = width;
   appHeight = height;
@@ -46,6 +46,11 @@ ellipse(125, 85, 10, 10);
 fill(255, 0, 0);
 arc(100, 125, 80, 50, 0, 3.14);
 line(60, 125, 140, 125);
+fill(0);
+rect(100, 200,10, 20, 28);
+rect(200, 200,10, 20, 28);
+
+rect(100, 300,110, 20, 28);
 
 } //End draw
 //
