@@ -4,6 +4,7 @@ float centerWidth, centerHeight, xStart, yStart, widthRect, heightRect;
 color black=#000000, white=#FFFFFF, purple=#FA00F6, yellow=#F8FC64;
 color yellowNightMode=#F8FC00, purpleNightMode=#FA0096;
 float thick, thin;
+Boolean grayScale=false, randomColour=false, blackBackground=false, nightMode=false;
 //
 void setup() {
   //Declare Display Geometry: square, landscape, portrait
@@ -48,19 +49,28 @@ void setup() {
 } //End setup
 //
 void draw() {
-  background(225); //Gray Scale 0-255
+  if ( grayScale == true ) background(225); //Gray Scale 0-255
   //random(a, b)
-  background( color( random(0, 255), random(255), random(255) ) ); //color(r,g,b), Casting 
+  if ( randomColour == true ) background( color( random(0, 255), random(255), random(255) ) ); //color(r,g,b), Casting 
   //Night Mode
-  background(black);
+  if ( blackBackground == true ) background(black);
   //
   strokeWeight(thick); //noStroke()
-  stroke(yellow);//yellowNightMode
-  fill(purple);//purpleNightmode
+  //Night Mode Decision
+  if ( nightMode == true )
+  {
+    stroke(yellowNightMode);
+    fill(purpleNightMode);
+  } else
+  {
+    stroke(yellow);
+    fill(purple);
+  }
   rect(xStart, yStart, widthRect, heightRect);
-  fill(white);// Reset default
-  stroke(black);//Reset default
-  strokeWeight(1);//Reset default
+  // Reset default
+  fill(white);
+  stroke(black);
+  strokeWeight(1);
   //
     fill(255,255,0);
  ellipse(100, 100, 150, 150);
@@ -80,9 +90,17 @@ rect(200, 200,10, 20, 28);
 } //End draw
 //
 void keyPressed() {
+  grayScale = false;
+  randomColour = false;
+  blackBackground = false;
+  if ( key=='A' || key=='a' ) grayScale = true;
+  if ( key=='S' || key=='s' ) randomColour = true;
+  if ( key=='W' || key=='w' ) blackBackground = true;
 } //End keyPressed
 //
 void mousePressed() {
+  if ( mouseButton == LEFT ) nightMode = true;
+  if ( mouseButton == RIGHT ) nightMode = false;
 } //End mousePressed
 //
 // End Main Program
